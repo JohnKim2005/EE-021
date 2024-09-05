@@ -1,0 +1,5 @@
+print("  +V       A  B  C  D   GND")
+print("| + | 1 |--o--o--o--o--| G |")
+print("| + | 2 |--o--o--o--o--| G |")
+print("| + | 3 |--o--o--o--o--| G |")
+print("| + | 4 |--o--o--o--o--| G |")
