@@ -1,7 +1,20 @@
+
+birthYear = ""
+currentYear = 2024
+
 print("What is your Full Name?")
 fullName = input(" > ")
-print("What is your Year of Birth?")
-birthYear = int(input(" > "))
-currentYear = 2024
-age = currentYear - birthYear
-print("\nYour name is " + fullName + "and you are " + string(age) + " years old.")
+
+while birthYear == "":
+    print("\nWhat is your Year of Birth?")
+    birthYear = input(" > ")
+    if not birthYear.isdigit():
+        print("\nPlease input a valid number as the birth year.", end = "")
+        birthYear = ""
+    elif int(birthYear) > currentYear:
+        print("\nPlease input a year that is not in the future.", end = "")
+        birthYear = ""
+age = currentYear - int(birthYear)
+
+
+print("\nYour name is " + fullName + " and you are " + str(age) + " years old.")
