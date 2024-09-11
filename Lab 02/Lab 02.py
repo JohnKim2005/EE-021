@@ -7,7 +7,7 @@ print('If the bands are equally spaced, the gold or silver band should be on the
 
 
 print('Please input the first (Left to Right) color by name or by number.')
-print('Please choose from 1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White')
+print('Please choose from \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White')
 firstColor = input('> ').lower()
 firstValue = 0
 
@@ -36,7 +36,7 @@ else :
 
 
 print('Please input the second (Left to Right) color by name or by number.')
-print('Please choose from 0. Black \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White')
+print('Please choose from \n0. Black \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White')
 secondColor = input('> ').lower()
 secondValue = 0
 
@@ -67,8 +67,8 @@ else :
 
 
 print('Please input the third (Left to Right) color by name or by number.')
-print('Please choose from 0. Black \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White \n10. Gold \n11. Silver \n12. Pink')
-thirdColor = input('> ')
+print('Please choose from \n0. Black \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White \n10. Gold \n11. Silver \n12. Pink')
+thirdColor = input('> ').lower()
 thirdValue = 0
 
 if thirdColor in ['black', '0'] :
@@ -104,33 +104,50 @@ else :
 
 
 print('Please input the Last (Left to Right) color by name or by number.')
-print('Please choose from 0. Black \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n9. White \n10. Gold \n11. Silver \n12. Pink')
-fourthColor = input('> ')
+print('Please choose from \n1. Brown \n2. Red \n3. Orange \n4. Yellow \n5. Green \n6. Blue \n7. Purple \n8. Gray \n10. Gold \n11. Silver')
+fourthColor = input('> ').lower()
 fourthValue = 0
 
-if secondColor in ['brown', '1'] :
-    secondValue = 1
-elif secondColor in ['red', '2'] :
-    secondValue = 2
-elif secondColor in ['orange', '3'] :
-    secondValue = 0.05
-elif secondColor in ['yellow', '4'] :
-    secondValue = 0.02
-elif secondColor in ['green', '5'] :
-    secondValue = 0.5
-elif secondColor in ['blue', '6'] :
-    secondValue = 0.25
-elif secondColor in ['purple', '7'] :
-    secondValue = 0.1
-elif secondColor in ['gray', '8'] :
-    secondValue = 0.01
-elif secondColor in ['gold', '10'] :
-    secondValue = 5
-elif secondColor in ['silver', '11'] :
-    secondValue = 10
+if fourthColor in ['brown', '1'] :
+    fourthValue = 1
+elif fourthColor in ['red', '2'] :
+    fourthValue = 2
+elif fourthColor in ['orange', '3'] :
+    fourthValue = 0.05
+elif fourthColor in ['yellow', '4'] :
+    fourthValue = 0.02
+elif fourthColor in ['green', '5'] :
+    fourthValue = 0.5
+elif fourthColor in ['blue', '6'] :
+    fourthValue = 0.25
+elif fourthColor in ['purple', '7'] :
+    fourthValue = 0.1
+elif fourthColor in ['gray', '8'] :
+    fourthValue = 0.01
+elif fourthColor in ['gold', '10'] :
+    fourthValue = 5
+elif fourthColor in ['silver', '11'] :
+    fourthValue = 10
 else :
     print('The input is not a valid input. Please try again.')
     exit()
 
+resistance = (firstValue * 10 + secondValue) * thirdValue
+
+
 print('\n\n\n\n\n')
-print('')
+print('The resistor is ' + str(resistance) + "\u03A9 \u00B1" + str(fourthValue) + "%")
+
+# Simplification for mili, kilo, mega, and giga Ohms
+if resistance/1000000000 >= 1 : # Giga Ohms
+            resistance = resistance/1000000000
+            print('Simplified: '+ str(resistance) + "G\u03A9 \u00B1" + str(fourthValue) + "%")
+elif resistance/1000000 >= 1 : # Mega Ohms
+        resistance = resistance/1000000
+        print('Simplified: '+ str(resistance) + "M\u03A9 \u00B1" + str(fourthValue) + "%")
+elif resistance/1000 >= 1 : # Kilo Ohms
+    resistance = resistance/1000
+    print('Simplified: '+ str(resistance) + "K\u03A9 \u00B1" + str(fourthValue) + "%")
+elif resistance < 1 : # mili Ohms
+    resistance = resistance*1000
+    print('Simplified: '+ str(resistance) + "m\u03A9 \u00B1" + str(fourthValue) + "%")
