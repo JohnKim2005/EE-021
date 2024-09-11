@@ -1,2 +1,2 @@
 choice = input("What two-terminal component would you like to place between A1 and B2 on the breadboard grid? Indicate your choice with an L or an R for an LED or a resistor.")
-print("The user has chosen a component with two terminals: " + choice + "1 and " + choice + "2. This component will be connected between A1 and B2.")
+print("The user has chosen a component with two terminals: " + choice + "1 and " + choice + "2. This component will be connected between A1 and B2.")   
