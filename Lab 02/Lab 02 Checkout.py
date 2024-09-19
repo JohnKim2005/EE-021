@@ -102,5 +102,5 @@ else :
     exit()
 
 
-
+print('\n\n')
 print(str(firstValue)+", "+str(secondValue)+", "+str(thirdValue))
