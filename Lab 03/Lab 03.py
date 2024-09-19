@@ -5,7 +5,7 @@ V_in = 5.
 if (desiredVoltage > 5) :
     print("Your Input Value is Larger than the Input Voltage. Please Try again with an input above 0V and below 5V.")
     exit
-else if (desiredVoltage < 0) :
+elif (desiredVoltage < 0) :
     print("Your Input Value is Negative. Please Try again with an input above 0V and lower than 5V")
     exit
 
