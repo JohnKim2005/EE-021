@@ -1,0 +1,1 @@
+print("My Midterm project will be an encryption and decryption. I will make encryption and decryption with a key. I will also if I have time, try to make an algorithm for forced decryption.")
