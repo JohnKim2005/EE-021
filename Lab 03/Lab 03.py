@@ -70,7 +70,7 @@ v_out = 5.
 r_n = 0
 v_prev = 5.
 r_prev = 0
-r = 33
+r = 100
 while (v_out > desiredVoltage) :
     r_n += r
     v_out = V_in * (r_last/(r_last+r_n))
