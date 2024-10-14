@@ -35,14 +35,35 @@ print("The total number of frequencies in all my dictionaries are" + str(totalFr
 # Part 2
 print("Enter the frequency notes you'd like to play. Your notes must be separated by spaces.")
 print("For example, 'C#4 D4 E6 F1 G7 A0' is a valid input. Enter your desired notes here: ")
-user_freq = input()
+user_freq = input().upper()
 
 print("Enter the weights for the notes to distinguish how important each of those notes are.")
 print("Your weights must be separated by spaces and you must enter the same number of weights as notes.")
 print("For example, '1 0.5 0.8 0.75 1 1' is a valid input for the previous example. Enter your desired weights here: ")
-user_weights = input()
+user_weights = input().upper()
 
 
 # Part 2A
 user_freq_list = user_freq.split(' ')
 user_weights_list = user_weights.split(' ')
+
+print("The converted list for the input notes is: ", user_freq_list)
+print("The converted list for the weight values is: " , user_weights_list)
+
+
+# Part 2B
+if len(user_freq_list) != len(user_weights_list) :
+    print("List lengths are not the same. You must enter the same number of weights and notes.")
+    sys.exit()
+
+
+# Part 3
+user_translated_freq_list = []
+for note in user_freq_list :
+    for dict in listDict :
+        if note in dict :
+            user_translated_freq_list.append(dict[note])
+            break
+
+
+print("The frequency values requested are " + user_translated_freq_list)
