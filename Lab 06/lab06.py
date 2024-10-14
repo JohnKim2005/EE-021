@@ -1,4 +1,4 @@
-import sys
+import sys, winsound, time
 
 
 # Part 1A
@@ -57,13 +57,24 @@ if len(user_freq_list) != len(user_weights_list) :
     sys.exit()
 
 
-# Part 3
+# Part 3A
 user_translated_freq_list = []
 for note in user_freq_list :
     for dict in listDict :
         if note in dict :
             user_translated_freq_list.append(dict[note])
             break
+print("The frequency values requested are ", user_translated_freq_list)
 
 
-print("The frequency values requested are " + user_translated_freq_list)
+# Part 3B
+user_weighted_freq_list = []
+for note, weight in user_translated_freq_list, user_weights_list:
+    user_weighted_freq_list.append(note*weight)
+print("The weighted frequency values requested are ", user_weighted_freq_list)
+
+
+# Part 3C
+for freq in user_weighted_freq_list :
+    winsound.Beep(int(freq), 1000)
+    time.sleep(0.5)
