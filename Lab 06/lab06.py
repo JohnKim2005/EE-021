@@ -19,7 +19,7 @@ totalFrequencies = 0
 for dict in listDict :
     if len(dict) != 12 :
         print("One of the Dictionaries are not 12 frequencies.")
-        print(f'{dict_music_notes_0=}')
+        print(f'{dict=}')
         sys.exit()
     totalFrequencies += len(dict)
 print("All dictionary lengths are the same and equal to 12")
@@ -77,6 +77,13 @@ print("The weighted frequency values requested are ", user_weighted_freq_list)
 
 
 # Part 3C
+for note in user_weighted_freq_list :
+    if note < 50 or note > 12000 :
+        print("Inaudible/unsafe frequencies entered. Exiting...")
+        sys.exit()
+
+
+# Part 4A
 for freq in user_weighted_freq_list :
     winsound.Beep(int(freq), 1000)
     time.sleep(1)
