@@ -46,6 +46,8 @@ user_weights = input().upper()
 # Part 2A
 user_freq_list = user_freq.split(' ')
 user_weights_list = user_weights.split(' ')
+for i in range(len(user_weights_list)) :
+    user_weights_list[i] = float(user_weights_list[i])
 
 print("The converted list for the input notes is: ", user_freq_list)
 print("The converted list for the weight values is: " , user_weights_list)
@@ -69,12 +71,12 @@ print("The frequency values requested are ", user_translated_freq_list)
 
 # Part 3B
 user_weighted_freq_list = []
-for note, weight in (user_translated_freq_list, user_weights_list):
-    user_weighted_freq_list.append(note*weight)
+for i in range(len(user_weights_list)):
+    user_weighted_freq_list.append(user_translated_freq_list[i]*user_weights_list[i])
 print("The weighted frequency values requested are ", user_weighted_freq_list)
 
 
 # Part 3C
 for freq in user_weighted_freq_list :
     winsound.Beep(int(freq), 1000)
-    time.sleep(0.5)
+    time.sleep(1)
