@@ -69,7 +69,7 @@ print("The frequency values requested are ", user_translated_freq_list)
 
 # Part 3B
 user_weighted_freq_list = []
-for note, weight in user_translated_freq_list, user_weights_list:
+for note, weight in (user_translated_freq_list, user_weights_list):
     user_weighted_freq_list.append(note*weight)
 print("The weighted frequency values requested are ", user_weighted_freq_list)
 
