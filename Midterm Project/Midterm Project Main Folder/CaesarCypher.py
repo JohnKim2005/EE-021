@@ -59,12 +59,19 @@ def Caesar():
             key = keyInput('c')
             for char in inputFile :
                 outputFile += shift(key, char)
+            print('\n\n -= ENCODED TEXT =-')
+            print(outputFile)
+
 
         elif keyType == 2:  # Randomized Key
-            print('\n\nEncrypt input string with randomized key')
-            print('Output the Encrypted string and Code')
+            key = random.randint(1, 25)
+            for char in inputFile :
+                outputFile += shift(key, char)
+            print(f'\n\n Key : {key}')
+            print('\n -= ENCODED TEXT =-')
+            print(outputFile)
 
-        print(outputFile)
+        
 
     elif cryption == 2:
         # keyType = choiceFunc('\n\nSet key or Forced Decryption ( S or F )', 'S', 'F') # Key Type Input Check
@@ -72,6 +79,8 @@ def Caesar():
         key = -1 * keyInput('c')
         for char in inputFile :
             outputFile += shift(key, char)
+        print('\n\n -= DECODED TEXT =-')
+        print(outputFile)
 
         # elif keyType == 2:
         #     print('\n\ntry to force decrypt with algorithm (Big if on if this works and makes it on to the finalized version)')
