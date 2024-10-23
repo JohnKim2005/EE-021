@@ -73,3 +73,37 @@ def keyInput(type: str):
 
     else :
         raise ValueError('Invalid Input into keyInput Function')
+    
+
+def bitInput():
+    print('\n\nPlease input the binary you want to en/decode.')
+    while True :
+        binaryInput = input('> ').replace(' ', '')
+        inputValid = True
+        bitlist = []
+        eightBit = ''
+        if len(binaryInput)%8 != 0 :
+            print("Invalid Input. Please Try again with a string of 8 bit Binary input made of 0's and 1's.")
+            inputValid = False
+        else :
+            for char in binaryInput :
+                if char not in ['0','1'] :
+                    print("Invalid Input. Please Try again with a string of 8 bit Binary input made of 0's and 1's.")
+                    inputValid = False
+                    break
+                eightBit += char
+                if len(eightBit) == 8 :
+                    bitlist.append(eightBit)
+                    eightBit = ''
+            if inputValid :
+                return bitlist
+            
+
+def char2binary(char:str) :
+    return format(ord(char), '08b')
+
+
+def binary2char(binary:str) :
+    return chr(int(binary,2))
+
+

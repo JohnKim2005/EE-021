@@ -20,12 +20,12 @@ def shift(key, char):
 def Caesar():
     """
     Caesar Cypher (Shift Cypher)
-    - ✘ Encryption with Key
-    - ✘ Encryption with Randomized Key
-    - ✘ Decryption with Key
+    - ✓ Encryption with Key
+    - ✓ Encryption with Randomized Key
+    - ✓ Decryption with Key
     - ✘ Decryption without key (Forced Decryption) - May require simple dictionary of most common words
     """
-    cryption = choiceFunc('Encryption or Decryption? ( E or D )', 'E', 'D')  # Encryption Decryption Input Check
+    cryption = choiceFunc('\n\nEncryption or Decryption? ( E or D )', 'E', 'D')  # Encryption Decryption Input Check
 
 
 
