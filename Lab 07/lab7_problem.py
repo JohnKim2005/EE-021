@@ -25,7 +25,10 @@ class Resistor:
         # Store this value in the variable self.multimeter_range
         # You are not allowed to change any pre-written part of the code
         # Write your code below this line
-
+        for multimeter in multimeter_range_available:
+            if self.resistance < multimeter:
+                self.multimeter_range = multimeter
+                break
         ######################################################################
         print("Measure this resistor with a multimeter"
               " that has a range of", self.multimeter_range)
@@ -72,7 +75,19 @@ class Resistor:
         # different colors.
         # For example, black is 0, brown is 1, and so on.
         color_values = {
-
+            "black": 0,
+            "brown": 1,
+            "red": 2,
+            "orange": 3,
+            "yellow": 4,
+            "green": 5,
+            "blue": 6,
+            "violet": 7,
+            "gray": 8,
+            "white": 9,
+            "gold": -1,
+            "silver": -2,
+            "pink": -3
         }
         ######################################################################
 
@@ -81,7 +96,10 @@ class Resistor:
         # Store the value in the variable self.resistance
         # You are not allowed to change any pre-written part of the code
         # Write your code below this line
-
+        for color in colors:
+            if color not in color_values:
+                raise ValueError("Invalid color")
+        self.resistance = (color_values[colors[0]]*10 + color_values[colors[1]]) * 10**color_values[colors[2]]
         #######################################################################
         return self.resistance
 
@@ -104,7 +122,8 @@ class Series:
         # Store the value in the variable total_resistance
         # You are not allowed to change any pre-written part of the code
         # Write your code below this line
-
+        for resistor in self.resistors:
+            total_resistance += resistor.get_resistance()
         #########################################################################
         return total_resistance
 
@@ -127,7 +146,9 @@ class Parallel:
         # Store the value in the variable total_resistance
         # You are not allowed to change any pre-written part of the code
         # Write your code below this line
-
+        for resistor in self.resistors:
+            total_resistance += 1/resistor.get_resistance()
+        total_resistance = 1/total_resistance
         ###########################################################################
         return total_resistance
 
@@ -139,11 +160,11 @@ if __name__ == "__main__":
     ###################################################################
     # Create a second resistor object with resistance value initialized
     # you may choose the value for resistor 2.
-    resistor_2 = None # replace None with your actual code.
+    resistor_2 = Resistor(3000) # replace None with your actual code.
     # Update resistance 2 value to a different value 
     # using the set_resistance method, 
     # and store the value in r2
-    r_2 = None  # replace None with your actual code.
+    r_2 = resistor_2.set_resistance(resistance=100)  # replace None with your actual code.
     print("Resistor 2 is now", r_2, "ohms.")
     ###################################################################
 
@@ -161,7 +182,7 @@ if __name__ == "__main__":
     # you may choose three colors for resistor 3
     # pass the three colors as a list to the set_resistance method
     # in the set_resistance method, and store the value in r3
-    r_3 = None  # replace None with your actual code.
+    r_3 = resistor_3.set_resistance(colors=["orange","orange","red"])  # replace None with your actual code.
     print("Resistor 3 is now", r_3, "ohms.")
     #########################################################
     resistor_3.get_multimeter_range()
@@ -173,3 +194,4 @@ if __name__ == "__main__":
           f'{series_resistor.get_resistance():6d}')
     print(f'Resistors {r_1}, {r_2}, and {r_3} in parallel is: '
           f'{parallel_resistor.get_resistance():.2f}')
+
