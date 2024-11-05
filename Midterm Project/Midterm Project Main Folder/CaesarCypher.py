@@ -44,7 +44,7 @@ def Caesar():
     # else :
     #     outputFile = open('Output.txt', 'r+')
     ''' This is Input Until Access Is Added '''
-    print('Please input the Sentence/String to be Encoded or Decoded')
+    print('\n\nPlease input the Sentence/String to be Encoded or Decoded')
     inputFile = input('> ')
     outputFile = ''
 

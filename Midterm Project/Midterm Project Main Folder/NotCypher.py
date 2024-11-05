@@ -23,9 +23,9 @@ def Not():
         inputFile = input('> ')
         returnString = ''
         for char in inputFile :
-            print(char)
-            print(char2binary(char))
-            print(flip(char2binary(char)))
+            # print(char)
+            # print(char2binary(char))
+            # print(flip(char2binary(char)))
             returnString += (flip(char2binary(char))) + " "
 
         print('\n\n -= ENCODED TEXT =-')
@@ -36,7 +36,7 @@ def Not():
         inputList = bitInput()
         returnString = ''
         for binary in inputList :
-            print(binary2char(flip(binary)))
+            # print(binary2char(flip(binary)))
             returnString += binary2char(flip(binary))
         
         print('\n\n -= DECODED TEXT =-')

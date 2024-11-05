@@ -1,1 +1,2 @@
-print(format(input(), "08b"))
+x = 25
+print(type(x))

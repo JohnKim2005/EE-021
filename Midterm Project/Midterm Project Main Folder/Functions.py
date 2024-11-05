@@ -76,6 +76,9 @@ def keyInput(type: str):
     
 
 def bitInput():
+    '''
+    Takes an Input from User and Returns a list of 8 bit binary Numbers
+    '''
     print('\n\nPlease input the binary you want to en/decode.')
     while True :
         binaryInput = input('> ').replace(' ', '')
@@ -100,10 +103,16 @@ def bitInput():
             
 
 def char2binary(char:str) :
+    '''
+    Char -> Binary (8 Bit)
+    '''
     return format(ord(char), '08b')
 
 
 def binary2char(binary:str) :
+    '''
+    Binary (8 Bit) -> Char
+    '''
     return chr(int(binary,2))
 
 
