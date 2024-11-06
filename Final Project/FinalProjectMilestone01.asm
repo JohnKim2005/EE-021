@@ -1,9 +1,24 @@
+.text
+
+.globl __start
+
+__start:
+	li 	$v0	1	# Load Immediate to $v0 with 1 (Print Integer - Value at $a0)
+	li	$a0	42	# Load Immediate to $a0 with 42
+	syscall
+	
+	li	$v0	11	# Load Immediate to $v0 with 11 (Print Character - Value at $a0)
+	li	$a0	0xA	# Load Immediate to $a0 with 0xA (ASCII 12 - New Line/Line Feed)
+	syscall
+	
+	li 	$v0	4	# Load Immediate to $v0 with 4 (Print String - Address at $a0)
+	la	$a0	msg	# Load Address to $a0 with msg
+	syscall
+	
+	li	$v0	10	# Load Immediate $v0 with 10 (Terminate Execution - Exit)   # $v0 of 17 is Terminate with Value out (at $a0)
+	syscall
+
 .data
-array1:         .space  12              #  declare 12 bytes of storage to hold array of 3 integers.
-text__start:    	la      $t0,    array1 #  load base address of array into register $t0
-	li      $t1,    5                      #  $t1 = 5   ("load immediate")
-	sw      $t1,    ($t0)                  #  first array element set to 5; indirect addressing
-	li      $t1,    13                     #   $t1 = 13
-	sw      $t1,    4($t0)                 #  second array element set to 13
-	li      $t1,    -7                     #   $t1 = -7
-	sw      $t1,    8($t0)                 #  third array element set to -7
+	msg:
+		.asciiz "Hello World!\n"
+
