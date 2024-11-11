@@ -10,5 +10,8 @@ __start:
 	
 	li	$v0	10	# Load Immediate $v0 with 10 (Terminate Execution - Exit)   # $v0 of 17 is Terminate with Value out (at $a0)
 	syscall
+	
+loop:
+
 
 .data
