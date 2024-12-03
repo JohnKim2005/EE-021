@@ -52,8 +52,18 @@ sortStart:
 	add	$t1,	$t0,	$zero		# Load the Number of Elements into $t1 for outer counter
 sortOuterLoop:	# Go Through Every element finding every Maximum
 	add	$t2,	$t0,	$zero		# Load the Number of Elements into $t2 for inner counter
-sortInnerLoop1:	# Find Maximum 
-sortInnerLoop1Larger: # Find replace Maximum
+	lw	$t3,	($t6)			# Load the First Value into the Maximum Variable to start
+	add	$t1,	$t5,	$zero
+sortInnerLoop1:	# Find Maximum
+	addi	$t6,	$t6,	4		# Move the Address to the Next Element
+	addi	$t1,	$t1,	-1		# Move the Counter down 1
+	beqz	$t1,	sortInnerLoop2Start		# If Loop is finished, Jump to next Section
+	ble	$t6,	$t1,	sortInnerLoop1	# If The Current Array Value is less or equal just skip
+	lw	$t1,	($t6)			# Replace $t1 with the bigger Value
+	j	sortInnerLoop1			# Loop Back
+sortInnerLoop2Start:	# Initialization for the 2nd loop
 sortInnerLoop2:	# Replace said Maximum with the Integer Minimum
+	
+sortInnerLoop2End:
 	
 	
